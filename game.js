@@ -29,6 +29,16 @@ function setup() {
   createCanvas(600, 400);
 }
 
+function centerCanvas(cnv) {
+  let x = (windowWidth - width) / 2;
+  let y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
+
+function windowResized() {
+  centerCanvas(createCanvas(600, 400));
+}
+
 function draw() {
   background(255);
 
