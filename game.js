@@ -29,15 +29,15 @@ function setup() {
   let cnv = createCanvas(600, 400);
   sound.play();
   centerCanvas(cnv);
-}
 
-if (sound.isLoaded()) {
-  sound.play();
-} else {
-  console.log("Sound file not yet loaded");
-}
+  if (sound.isLoaded()) {
+    sound.play();
+  } else {
+    console.log("Sound file not yet loaded");
+  }
 
-sound.setVolume(0.5); // Set volume to 50%
+  sound.setVolume(0.5); // Set volume to 50%
+}
 
 function centerCanvas(cnv) {
   let x = (windowWidth - width) / 2;
