@@ -29,6 +29,13 @@ let sound;
 function preload() {
     sound = loadSound('gsk.mp3');
 }
+function soundLoaded() {
+  console.log("Sound loaded successfully!");
+}
+
+function soundError(err) {
+  console.error("There was an error loading the sound:", err);
+}
 
 function setup() {
   let cnv = createCanvas(600, 400);
