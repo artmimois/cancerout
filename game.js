@@ -26,7 +26,7 @@ let isSuccessful = false;
 let gameState = 'briefing';
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(1280, 720);
 }
 
 function centerCanvas(cnv) {
