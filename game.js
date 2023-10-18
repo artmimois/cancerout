@@ -43,12 +43,7 @@ function setup() {
   centerCanvas(cnv);
   startButton = createButton('Start Game');
   startButton.position(width/2 - startButton.width/2, height - 40);
-  startButton.mousePressed(startGame);
-}
-
-function startGame() {
-  sound.play();
-  startButton.hide();
+  startButton.hide(); // Hide the button immediately
 }
 
 function centerCanvas(cnv) {
@@ -103,9 +98,9 @@ function displayBriefing() {
   text("Press ENTER to start", width / 2, height / 2 + 110);
 }
 
-
 function keyPressed() {
   if (keyCode === ENTER && gameState === 'briefing') {
+    sound.play();
     gameState = 'playing';
   }
 }
@@ -143,16 +138,16 @@ function displayBall() {
 }
 
 function movePaddles() {
-  if (keyIsDown(UP_ARROW)) {
+  if (keyIsDown(UP_ARROW) && rightPaddle.y > 0) {
     rightPaddle.y -= paddlesSpeed;
   }
-  if (keyIsDown(DOWN_ARROW)) {
+  if (keyIsDown(DOWN_ARROW) && rightPaddle.y < height - rightPaddle.height) {
     rightPaddle.y += paddlesSpeed;
   }
-  if (keyIsDown(87)) { 
+  if (keyIsDown(87) && leftPaddle.y > 0) { 
     leftPaddle.y -= paddlesSpeed;
   }
-  if (keyIsDown(83)) {
+  if (keyIsDown(83) && leftPaddle.y < height - leftPaddle.height) {
     leftPaddle.y += paddlesSpeed;
   }
 }
@@ -175,7 +170,6 @@ function drawPaddle(paddle, side) {
     text("GSK", paddle.x + paddle.width * 0.6, paddle.y + paddle.height / 2);
   }
 }
-
 
 function checkPaddleCollision(paddle) {
   let hit = false;
