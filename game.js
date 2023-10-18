@@ -27,6 +27,7 @@ let gameState = 'briefing';
 
 function setup() {
   let cnv = createCanvas(600, 400);
+  sound.play();
   centerCanvas(cnv);
 }
 
@@ -34,6 +35,12 @@ function centerCanvas(cnv) {
   let x = (windowWidth - width) / 2;
   let y = (windowHeight - height) / 2;
   cnv.position(x, y);
+}
+
+let sound;
+
+function preload() {
+    sound = loadSound('gsk.mp3');
 }
 
 function windowResized() {
