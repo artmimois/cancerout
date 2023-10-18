@@ -22,13 +22,14 @@ let rightPaddle = {
 
 let paddlesSpeed = 5;
 let isSuccessful = false;
-
 let gameState = 'briefing';
 let sound;
+let startButton;
 
 function preload() {
     sound = loadSound('gsk.mp3');
 }
+
 function soundLoaded() {
   console.log("Sound loaded successfully!");
 }
@@ -39,16 +40,15 @@ function soundError(err) {
 
 function setup() {
   let cnv = createCanvas(600, 400);
-  sound.play();
   centerCanvas(cnv);
+  startButton = createButton('Start Game');
+  startButton.position(width/2 - startButton.width/2, height - 40);
+  startButton.mousePressed(startGame);
+}
 
-  if (sound.isLoaded()) {
-    sound.play();
-  } else {
-    console.log("Sound file not yet loaded");
-  }
-
-  sound.setVolume(0.5); // Set volume to 50%
+function startGame() {
+  sound.play();
+  startButton.hide();
 }
 
 function centerCanvas(cnv) {
@@ -56,8 +56,6 @@ function centerCanvas(cnv) {
   let y = (windowHeight - height) / 2;
   cnv.position(x, y);
 }
-
-
 
 function windowResized() {
   centerCanvas(createCanvas(600, 400));
