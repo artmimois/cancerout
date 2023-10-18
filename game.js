@@ -31,6 +31,14 @@ function setup() {
   centerCanvas(cnv);
 }
 
+if (sound.isLoaded()) {
+  sound.play();
+} else {
+  console.log("Sound file not yet loaded");
+}
+
+sound.setVolume(0.5); // Set volume to 50%
+
 function centerCanvas(cnv) {
   let x = (windowWidth - width) / 2;
   let y = (windowHeight - height) / 2;
