@@ -24,6 +24,11 @@ let paddlesSpeed = 5;
 let isSuccessful = false;
 
 let gameState = 'briefing';
+let sound;
+
+function preload() {
+    sound = loadSound('gsk.mp3');
+}
 
 function setup() {
   let cnv = createCanvas(600, 400);
@@ -45,11 +50,7 @@ function centerCanvas(cnv) {
   cnv.position(x, y);
 }
 
-let sound;
 
-function preload() {
-    sound = loadSound('gsk.mp3');
-}
 
 function windowResized() {
   centerCanvas(createCanvas(600, 400));
